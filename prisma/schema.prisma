@@ -1,0 +1,22 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // atau "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Show {
+  id          String   @id @default(cuid())
+  tanggal     String   // Format YYYY-MM-DD
+  tipe        String   // "SHOW" atau "EVENT"
+  setlist     String
+  ref_code    String
+  member_name String   @default("Adeline Wijaya")
+  
+  // Mencegah jadwal duplikat di hari yang sama dengan setlist yang sama
+  @@unique([tanggal, setlist]) 
+}
