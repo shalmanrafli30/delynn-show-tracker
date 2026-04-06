@@ -51,11 +51,11 @@ export default function DashboardClient({shows, stats}: {shows: any[]; stats: an
 				</header>
 
 				{/* STATS CARDS (Tetap sama) */}
-				<div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+				<div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
 					<StatCard icon={<Mic2 className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />} title="Show & Event" value={stats.totalShows.toString()} />
 					<StatCard icon={<Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />} title="Top Setlist" value={stats.setlistFavorit} />
 					<StatCard icon={<CalendarDays className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />} title="Show Terakhir" value={stats.lastShowDate} />
-					<StatCard icon={<TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />} title="Status" value="Active" />
+					{/* <StatCard icon={<TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />} title="Status" value="Active" /> */}
 				</div>
 
 				{/* MID SECTION: CHART & SETLIST BREAKDOWN */}
@@ -187,7 +187,7 @@ function StatCard({icon, title, value}: {icon: React.ReactNode; title: string; v
 			<div className="p-2 sm:p-3 bg-slate-50 rounded-lg sm:rounded-xl shrink-0">{icon}</div>
 			<div>
 				<p className="text-[10px] sm:text-xs font-medium text-slate-500 mb-0.5 sm:mb-1">{title}</p>
-				<h3 className="text-base sm:text-xl font-bold text-slate-900 truncate max-w-[100px] sm:max-w-[150px]">{value}</h3>
+				<h3 className="text-base sm:text-xl font-bold text-slate-900 leading-tight break-words sm:truncate sm:max-w-[150px]">{value}</h3>
 			</div>
 		</div>
 	);
