@@ -5,7 +5,7 @@ import path from "path";
 
 const prisma = new PrismaClient();
 
-export async function GET() {
+export async function GET(request: Request) {
 	try {
 		const filePath = path.join(process.cwd(), "data.csv");
 		const fileContent = fs.readFileSync(filePath, "utf8");
